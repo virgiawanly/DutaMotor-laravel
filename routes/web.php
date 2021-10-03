@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeliCashController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PembeliController;
@@ -23,3 +24,7 @@ Route::resource('/mobil', MobilController::class)->except(['show']);
 
 Route::get('/pembeli/register-pembeli', [PembeliController::class, 'create']);
 Route::resource('/pembeli', PembeliController::class)->except(['show']);
+
+Route::get('/transaksi/cash/beli-baru', [BeliCashController::class, 'create']);
+Route::get('/transaksi/cash/{cash}/cetak-nota', [BeliCashController::class, 'cetak_nota'])->name('cash.cetak_nota');
+Route::resource('/transaksi/cash', BeliCashController::class)->except(['delete', 'show', 'edit']);

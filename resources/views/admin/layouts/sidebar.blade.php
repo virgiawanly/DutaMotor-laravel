@@ -35,48 +35,55 @@
 
          <!-- Sidebar Menu -->
          <nav class="mt-2">
-             <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-child-indent nav-legacy" data-widget="treeview" role="menu"
-                 data-accordion="false">
+             <ul class="nav nav-pills nav-sidebar flex-column nav-flat nav-child-indent nav-legacy"
+                 data-widget="treeview" role="menu" data-accordion="false">
                  <li class="nav-item">
                      <a href="/" class="nav-link {{ request()->is('/') ? 'active' : '' }}">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
                          <p>Dashboard</p>
                      </a>
                  </li>
-                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {{ request()->is('/mobil') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-cash-register"></i>
-                        <p>
-                            Transaksi
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/transaksi/kredit/kredit-baru" class="nav-link {{ request()->is('/transaksi/kredit/kredit-baru') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Kredit</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/transaksi/cash/beli-baru"
-                                class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Beli Cash</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/transaksi/cash/beli-baru"
-                                class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Bayar Cicilan</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                 <li class="nav-header">DATA</li>
+                 <li class="nav-item">
+                     <a href="/" class="nav-link {{ request()->is('/transaksi') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-cash-register"></i>
+                         <p>Transaksi Baru</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="#" class="nav-link {{ request()->is('/mobil') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-wallet"></i>
+                         <p>
+                             Data Transaksi
+                             <i class="right fas fa-angle-left"></i>
+                         </p>
+                     </a>
+                     <ul class="nav nav-treeview">
+                         <li class="nav-item">
+                             <a href="/transaksi/kredit/kredit-baru"
+                                 class="nav-link {{ request()->is('/transaksi/kredit/kredit-baru') ? 'active' : '' }}">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Kredit</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/transaksi/cash/beli-baru"
+                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Beli Cash</p>
+                             </a>
+                         </li>
+                         <li class="nav-item">
+                             <a href="/transaksi/cash/beli-baru"
+                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>Bayar Cicilan</p>
+                             </a>
+                         </li>
+                     </ul>
+                 </li>
                  <li class="nav-item {{ request()->is('mobil/*') || request()->is('mobil') ? 'menu-open' : '' }}">
-                     <a href="#" class="nav-link {{ request()->is('mobil/*') || request()->is('mobil') ? 'active' : '' }}">
+                     <a href="#"
+                         class="nav-link {{ request()->is('mobil/*') || request()->is('mobil') ? 'active' : '' }}">
                          <i class="nav-icon fas fa-car"></i>
                          <p>
                              Mobil
@@ -99,8 +106,10 @@
                          </li>
                      </ul>
                  </li>
-                 <li class="nav-item {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'menu-open' : '' }}">
-                     <a href="#" class="nav-link {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'active' : '' }}">
+                 <li
+                     class="nav-item {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'menu-open' : '' }}">
+                     <a href="#"
+                         class="nav-link {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'active' : '' }}">
                          <i class="nav-icon fas fa-users"></i>
                          <p>
                              Pembeli
@@ -123,44 +132,13 @@
                          </li>
                      </ul>
                  </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link {{ request()->is('/mobil') ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-wallet"></i>
-                         <p>
-                             Data Transaksi
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="/transaksi/kredit/kredit-baru" class="nav-link {{ request()->is('/transaksi/kredit/kredit-baru') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Kredit</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/transaksi/cash/beli-baru"
-                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Beli Cash</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/transaksi/cash/beli-baru"
-                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Bayar Cicilan</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
                  <li class="nav-header">UTILITY</li>
                  <li class="nav-item">
-                    <a href="/" class="nav-link {{ request()->is('/my-profile') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user-alt"></i>
-                        <p>Profile</p>
-                    </a>
-                </li>
+                     <a href="/" class="nav-link {{ request()->is('/my-profile') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-user-alt"></i>
+                         <p>Profile</p>
+                     </a>
+                 </li>
              </ul>
          </nav>
          <!-- /.sidebar-menu -->

@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
     <div class="card card-secondary card-outline">
         <form action="{{ route('mobil.store') }}" method="POST" enctype="multipart/form-data">
             <div class="card-header">

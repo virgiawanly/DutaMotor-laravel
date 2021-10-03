@@ -28,7 +28,7 @@
     </div>
     <div class="col-md-10">
         @php
-            $tipe = ['SUV', 'Sport', 'Convertible', 'Coupe', 'Hatchback', 'MPV', 'Station Wagon', 'Mini Bus', 'Truck', 'Sedan'];
+            $tipe = ['SUV', 'Sport', 'Convertible', 'Coupe', 'City', 'Hatchback', 'MPV', 'Station Wagon', 'Mini Bus', 'Truck', 'Sedan'];
         @endphp
         <select class="form-control select-tipe" id="tipe" name="tipe">
             <option value="" disabled selected>--- Pilih Tipe --</option>

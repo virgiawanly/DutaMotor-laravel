@@ -234,12 +234,49 @@
 
                 <!-- Transaksi -->
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="cash_bayar">Jumlah Bayar</label>
+                            <label>Lama Kredit</label>
+                            <div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="kredit1th" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit1th">1 Tahun</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="kredit2Tahun" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit2Tahun">2 Tahun</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="kredit3Tahun" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit3Tahun">3 Tahun</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cash_bayar">Jumlah DP</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" value="0" id="dp20" name="lama_kredit"
+                                            class="custom-control-input" checked>
+                                        <label class="custom-control-label" for="dp20">20%</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" value="1" id="dp25" name="lama_kredit"
+                                            class="custom-control-input">
+                                        <label class="custom-control-label" for="dp25">25%</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" value="1" id="dp30" name="lama_kredit"
+                                            class="custom-control-input">
+                                        <label class="custom-control-label" for="dp30">30%</label>
+                                    </div>
                                 </div>
                                 <input type="number" min="0" class="form-control" id="cash_bayar" name="cash_bayar"
                                     value="{{ old('cash_bayar') ?? '' }}" placeholder="" />
@@ -249,9 +286,46 @@
                             @enderror
                         </div>
                     </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cash_bayar">Jumlah DP</label>
+                            <input type="number" min="0" class="form-control" readonly id="cash_bayar" name="cash_bayar"
+                                placeholder="" />
+                            @error('cash_bayar')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Lama Kredit</label>
+                            <div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="0" id="kredit1th" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit1th">1 Tahun</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="kredit2th" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit2th">2 Tahun</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="1" id="kredit3th" name="lama_kredit"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="kredit3th">3 Tahun</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.form-controls -->
             </div>
+
             <!-- /.card-body -->
             <div class="card-footer d-flex align-items-center">
                 <div class="ml-auto">

@@ -22,7 +22,6 @@
         .gray {
             background-color: lightgray
         }
-
     </style>
 
 </head>
@@ -32,7 +31,7 @@
     <table width="100%" style="margin-bottom: 25px">
         <tr>
             <td width="115px">
-                <img src="{{ public_path('/img/company-logo.svg') }}" alt="" width="100" />
+                <img src="{{ public_path('/img/company-logo.svg') }}" alt="" width="90" />
             </td>
             <td valign="top">
                 <h3 style="margin: 0; margin-bottom: 8px">PT Duta Motor Indonesia</h3>

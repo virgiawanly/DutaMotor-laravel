@@ -4,16 +4,16 @@
 
     <div class="card card-primary card-outline">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h3 class="card-title">Data Pembelian Cash</h3>
+            <h3 class="card-title">Data Kredit</h3>
             <div class="card-tools ml-auto">
-                <a href="/transaksi/cash/beli-baru">
-                    <button class="btn btn-primary">Pembelian Baru</button>
+                <a href="/transaksi/kredit/pendaftaran-kredit">
+                    <button class="btn btn-primary">Pendaftaran Kredit Baru</button>
                 </a>
             </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="table-transaksi-cash" class="table table-bordered table-sm table-hover table-striped">
+            <table id="table-kredit" class="table table-bordered table-sm table-hover table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -31,24 +31,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($data_transaksi as $key => $transaksi)
+                    @foreach ($data_kredit as $key => $kredit)
                         <tr>
                             <td>{{ ++$key }}</td>
-                            <td>{{ $transaksi->kode_cash }}</td>
-                            <td>{{ $transaksi->pembeli->ktp_pembeli }}</td>
-                            <td><span
-                                    title="{{ $transaksi->pembeli->nama }}">{{ Str::limit($transaksi->pembeli->nama, 20) }}</span>
-                            </td>
-                            <td>{{ $transaksi->mobil->kode_mobil }}</td>
-                            <td>{{ $transaksi->mobil->merek }}</td>
-                            <td>{{ $transaksi->mobil->model }} ({{ $transaksi->mobil->tahun }})</td>
-                            <td>{{ $transaksi->mobil->tipe }}</td>
-                            <td>Rp. {{ number_format($transaksi->mobil->harga) }}</td>
-                            <td>Rp. {{ number_format($transaksi->cash_bayar) }}</td>
-                            <td>{{ date('d/m/Y', strtotime($transaksi->cash_tgl)) }}</td>
+                            <td>{{ $kredit->kode_cash }}</td>
+                            <td>{{ $kredit->pembeli->ktp_pembeli }}</td>
+                            <td><span title="{{$kredit->pembeli->nama}}">{{ Str::limit($kredit->pembeli->nama, 20) }}</span></td>
+                            <td>{{ $kredit->mobil->kode_mobil }}</td>
+                            <td>{{ $kredit->mobil->merek }}</td>
+                            <td>{{ $kredit->mobil->model }} ({{ $kredit->mobil->tahun }})</td>
+                            <td>{{ $kredit->mobil->tipe }}</td>
+                            <td>Rp. {{ number_format($kredit->mobil->harga) }}</td>
+                            <td>Rp. {{ number_format($kredit->cash_bayar) }}</td>
+                            <td>{{ date('d/m/Y', strtotime($kredit->cash_tgl)) }}</td>
                             <td>
-                                <a href="/transaksi/cash/{{ $transaksi->kode_cash }}/cetak-nota" target="_blank"
-                                    title="Cetak nota" class="btn btn-sm btn-success mb-0"><i class="fas fa-print"></i></a>
+                                <a href="/transaksi/cash/{{$kredit->kode_cash}}/cetak-nota" target="_blank" title="Cetak nota" class="btn btn-sm btn-success mb-0"><i class="fas fa-print"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -69,9 +66,6 @@
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
-    @if (session('print-nota'))
-        {!! session('print-nota') !!}
-    @endif
 @endpush
 
 @push('script')
@@ -96,7 +90,7 @@
 
         // DataTable Initialization
         $(function() {
-            $('#table-transaksi-cash').DataTable({
+            $('#table-kredit').DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": true,

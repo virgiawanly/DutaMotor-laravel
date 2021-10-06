@@ -1,10 +1,10 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
-         <img src="{{ asset('adminlte') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-             class="brand-image img-circle elevation-3" style="opacity: .8">
-         <span class="brand-text font-weight-light">DutaMotor</span>
+     <a href="/" class="brand-link">
+         <img src="{{ asset('img/company-logo-white.svg') }}" style="padding: 4px" alt="AdminLTE Logo"
+             class="brand-image">
+         <span class="brand-text">dutamotor</span>
      </a>
 
      <!-- Sidebar -->
@@ -12,7 +12,7 @@
          <!-- Sidebar user panel (optional) -->
          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
              <div class="image">
-                 <img src="{{ asset('adminlte') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                 <img src="{{ asset('adminlte') }}/dist/img/user2-160x160.jpg" class="img-circle"
                      alt="User Image">
              </div>
              <div class="info">
@@ -21,7 +21,7 @@
          </div>
 
          <!-- SidebarSearch Form -->
-         {{-- <div class="form-inline">
+         <div class="form-inline">
              <div class="input-group" data-widget="sidebar-search">
                  <input class="form-control form-control-sidebar" type="search" placeholder="Search"
                      aria-label="Search">
@@ -31,7 +31,7 @@
                      </button>
                  </div>
              </div>
-         </div> --}}
+         </div>
 
          <!-- Sidebar Menu -->
          <nav class="mt-2">
@@ -46,7 +46,7 @@
                  <li class="nav-item">
                      <a href="/" class="nav-link {{ request()->is('/transaksi') ? 'active' : '' }}">
                          <i class="nav-icon fas fa-cash-register"></i>
-                         <p>Transaksi Baru</p>
+                         <p>Menu Transaksi</p>
                      </a>
                  </li>
                  <li class="nav-item">
@@ -59,22 +59,22 @@
                      </a>
                      <ul class="nav nav-treeview">
                          <li class="nav-item">
-                             <a href="/transaksi/kredit/kredit-baru"
-                                 class="nav-link {{ request()->is('/transaksi/kredit/kredit-baru') ? 'active' : '' }}">
+                             <a href="/transaksi/kredit"
+                                 class="nav-link {{ request()->is('/transaksi/kredit') ? 'active' : '' }}">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Kredit</p>
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="/transaksi/cash/beli-baru"
-                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
+                             <a href="/transaksi/cash"
+                                 class="nav-link {{ request()->is('/transaksi/cash') ? 'active' : '' }}">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Beli Cash</p>
                              </a>
                          </li>
                          <li class="nav-item">
                              <a href="/transaksi/cash/beli-baru"
-                                 class="nav-link {{ request()->is('/transaksi/cash/beli-baru') ? 'active' : '' }}">
+                                 class="nav-link {{ request()->is('/bayar-cicilan') ? 'active' : '' }}">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Bayar Cicilan</p>
                              </a>
@@ -98,7 +98,7 @@
                              </a>
                          </li>
                          <li class="nav-item">
-                             <a href="/mobil/create"
+                             <a href="/mobil/tambah-mobil"
                                  class="nav-link {{ request()->is('mobil/create') ? 'active' : '' }}">
                                  <i class="far fa-circle nav-icon"></i>
                                  <p>Tambah Mobil</p>

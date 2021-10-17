@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mobil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class MobilController extends Controller
 {
@@ -35,7 +36,16 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        // $request->validate([
+        //     'merek' => 'required|max:64|min:3',
+        //     'model' => 'required|max:64',
+        //     'tipe' => 'required|max:64',
+        //     'warna' => 'required|max:64',
+        //     'harga' => 'required|numeric',
+        //     'tahun' => 'required|digits:4|integer|min:1901|max:' . (date('Y') + 10)
+        // ]);
+
+        $validator = Validator::make($request->all(), [
             'merek' => 'required|max:64|min:3',
             'model' => 'required|max:64',
             'tipe' => 'required|max:64',
@@ -123,5 +133,20 @@ class MobilController extends Controller
         }
 
         return redirect()->to("/mobil")->with('success', 'Data mobil berhasil dihapus.');
+    }
+
+    /**
+     * Data for ajax
+     *
+     * @param \App\Models\Mobil $mobil
+     */
+    public function data_single(Mobil $mobil)
+    {
+        $mobil->gambar = $mobil->url_gambar();
+        return response()->json([
+            'success' => true,
+            'message' => 'Data mobil',
+            'data' => $mobil
+        ], 200);
     }
 }

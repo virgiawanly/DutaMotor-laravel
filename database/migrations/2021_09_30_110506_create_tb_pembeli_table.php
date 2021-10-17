@@ -17,7 +17,7 @@ class CreateTbPembeliTable extends Migration
             $table->char('ktp_pembeli', 24)->primary();
             $table->string('nama', 128);
             $table->string('alamat');
-            $table->char('no_telp', 16);
+            $table->char('no_telp', 24);
             $table->timestamps();
         });
     }

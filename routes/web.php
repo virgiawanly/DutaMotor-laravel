@@ -5,6 +5,7 @@ use App\Http\Controllers\KreditController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PembeliController;
+use App\Models\Mobil;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -20,7 +20,7 @@
         }
 
         .gray {
-            background-color: lightgray
+            background-color: lightgray;
         }
     </style>
 
@@ -49,14 +49,14 @@
 
     <table>
         <tr>
-            <td><b>Terima dari</b></td>
-            <td>:</td>
+            <td style="width: 25%"><b>Terima dari</b></td>
+            <td style="width: 10px;">:</td>
             <td colspan="3"><u>{{strtoupper($transaksi->pembeli->nama)}}</u></td>
         </tr>
         <tr>
             <td><b>Jumlah Uang</b></td>
             <td>:</td>
-            <td colspan="3"><u>Rp {{number_format($transaksi->cash_bayar)}}</u></td>
+            <td colspan="3" style="border: 1px solid black; background-color: #EBD4D7; padding: 4px;">{{ strtoupper(terbilang($transaksi->cash_bayar)) }} RUPIAH</td>
         </tr>
         <tr>
             <td><b>Untuk Pembayaran</b></td>
@@ -66,8 +66,8 @@
         <tr>
             <td></td>
             <td></td>
-            <td>Model</td>
-            <td>:</td>
+            <td style="width: 15%">Model</td>
+            <td style="width: 3%">:</td>
             <td><u>{{$transaksi->mobil->model}}</u></td>
         </tr>
         <tr>

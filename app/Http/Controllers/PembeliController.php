@@ -101,4 +101,18 @@ class PembeliController extends Controller
 
         return redirect()->to('/pembeli')->with('success', 'Data pembeli berhasil dihapus');
     }
+
+    /**
+     * Data for ajax
+     *
+     * @param \App\Models\Pembeli $pembeli
+     */
+    public function data_single(Pembeli $pembeli)
+    {
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Pembeli',
+            'data' => $pembeli
+        ], 200);
+    }
 }

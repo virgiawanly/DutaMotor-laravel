@@ -43,94 +43,37 @@
                          <p>Dashboard</p>
                      </a>
                  </li>
+                 <li class="nav-header">MASTER</li>
+                 <li class="nav-item">
+                     <a href="/mobil" class="nav-link {{ request()->is('mobil/*') || request()->is('mobil') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-car"></i>
+                         <p>Mobil</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/pembeli" class="nav-link {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-user"></i>
+                         <p>Pembeli</p>
+                     </a>
+                 </li>
+                 <li class="nav-header">TRANSAKSI</li>
+                 <li class="nav-item">
+                     <a href="/transaksi/cash" class="nav-link {{ request()->is('transaksi/cash') || request()->is('transaksi/cash/*') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-wallet"></i>
+                         <p>Beli Cash</p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/transaksi/kredit" class="nav-link {{ request()->is('transaksi/kredit') || request()->is('transaksi/kredit/*') ? 'active' : '' }}">
+                         <i class="nav-icon fas fa-credit-card"></i>
+                         <p>Kredit</p>
+                     </a>
+                 </li>
                  <li class="nav-item">
                      <a href="/" class="nav-link {{ request()->is('/transaksi') ? 'active' : '' }}">
                          <i class="nav-icon fas fa-cash-register"></i>
-                         <p>Menu Transaksi</p>
+                         <p>Bayar Cicilan</p>
                      </a>
-                 </li>
-                 <li class="nav-item">
-                     <a href="#" class="nav-link {{ request()->is('/mobil') ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-wallet"></i>
-                         <p>
-                             Data Transaksi
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="/transaksi/kredit"
-                                 class="nav-link {{ request()->is('/transaksi/kredit') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Kredit</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/transaksi/cash"
-                                 class="nav-link {{ request()->is('/transaksi/cash') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Beli Cash</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/transaksi/cash/beli-baru"
-                                 class="nav-link {{ request()->is('/bayar-cicilan') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Bayar Cicilan</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-                 <li class="nav-item {{ request()->is('mobil/*') || request()->is('mobil') ? 'menu-open' : '' }}">
-                     <a href="#"
-                         class="nav-link {{ request()->is('mobil/*') || request()->is('mobil') ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-car"></i>
-                         <p>
-                             Mobil
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="/mobil" class="nav-link {{ request()->is('mobil') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Data Mobil</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/mobil/tambah-mobil"
-                                 class="nav-link {{ request()->is('mobil/create') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Tambah Mobil</p>
-                             </a>
-                         </li>
-                     </ul>
-                 </li>
-                 <li
-                     class="nav-item {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'menu-open' : '' }}">
-                     <a href="#"
-                         class="nav-link {{ request()->is('pembeli/*') || request()->is('pembeli') ? 'active' : '' }}">
-                         <i class="nav-icon fas fa-users"></i>
-                         <p>
-                             Pembeli
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
-                     </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="/pembeli" class="nav-link {{ request()->is('/pembeli') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Data Pembeli</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="/pembeli/register-pembeli"
-                                 class="nav-link {{ request()->is('/pembeli/register-pembeli') ? 'active' : '' }}">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Register Pembeli</p>
-                             </a>
-                         </li>
-                     </ul>
                  </li>
                  <li class="nav-header">UTILITY</li>
                  <li class="nav-item">

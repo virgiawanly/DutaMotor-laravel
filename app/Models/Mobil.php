@@ -18,6 +18,14 @@ class Mobil extends Model
 
     protected $keyType = "string";
 
+    public function beli_cash(){
+        return $this->hasOne(BeliCash::class, 'kode_mobil', 'kode_mobil');
+    }
+
+    public function kredit(){
+        return $this->hasOne(Kredit::class, 'kode_mobil', 'kode_mobil');
+    }
+
     /**
      * Menggenerate kode mobil berdasarkan kode mobil terbaru
      * @return string $kode_mobil
@@ -35,8 +43,19 @@ class Mobil extends Model
      * URL gambar full
      * @return string $url
      */
-    public function url_gambar(){
-        if($this->gambar && Storage::exists($this->gambar)) return Storage::url($this->gambar);
-        return "https://via.placeholder.com/150";
+    public function url_gambar()
+    {
+        // Check jika data gambar adalah url
+        if (filter_var($this->gambar, FILTER_VALIDATE_URL)) {
+            return $this->gambar;
+        }
+        // Check jika gambar ada di storage
+        else if ($this->gambar && Storage::exists($this->gambar)) {
+            return Storage::url($this->gambar);
+        }
+        // Jika tidak ada gambar
+        else {
+            return "https://via.placeholder.com/150";
+        }
     }
 }

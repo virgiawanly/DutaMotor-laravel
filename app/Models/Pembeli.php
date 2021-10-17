@@ -16,4 +16,12 @@ class Pembeli extends Model
     protected $primaryKey = "ktp_pembeli";
 
     protected $keyType = "string";
+
+    public function kredit(){
+        return $this->hasMany(Kredit::class, 'ktp_pembeli', 'ktp_pembeli');
+    }
+
+    public function beli_cash(){
+        return $this->hasMany(BeliCash::class, 'ktp_pembeli', 'ktp_pembeli');
+    }
 }

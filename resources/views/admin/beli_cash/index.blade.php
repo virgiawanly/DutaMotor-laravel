@@ -1,15 +1,16 @@
 @extends('admin.layouts.app')
 
+@section('content-header')
+    <h1>Pembelian Cash</h1>
+@endsection
+
 @section('content')
 
     <div class="card card-primary card-outline">
         <div class="card-header d-flex align-items-center justify-content-between">
-            <h3 class="card-title">Data Pembelian Cash</h3>
-            <div class="card-tools ml-auto">
-                <a href="/transaksi/cash/beli-baru">
-                    <button class="btn btn-primary">Pembelian Baru</button>
-                </a>
-            </div>
+            <a href="/transaksi/cash/beli-baru" class="btn btn-primary"><i class="fas fa-plus-circle mr-1"></i> Pembelian
+                Baru
+            </a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -20,9 +21,7 @@
                         <th>Kode Cash</th>
                         <th>KTP Pembeli</th>
                         <th>Pembeli</th>
-                        <th>Kode Mobil</th>
-                        <th>Merek</th>
-                        <th>Model (Tahun)</th>
+                        <th>Mobil</th>
                         <th>Tipe</th>
                         <th>Harga Mobil</th>
                         <th>Jumlah Bayar</th>
@@ -39,9 +38,8 @@
                             <td><span
                                     title="{{ $transaksi->pembeli->nama }}">{{ Str::limit($transaksi->pembeli->nama, 20) }}</span>
                             </td>
-                            <td>{{ $transaksi->mobil->kode_mobil }}</td>
-                            <td>{{ $transaksi->mobil->merek }}</td>
-                            <td>{{ $transaksi->mobil->model }} ({{ $transaksi->mobil->tahun }})</td>
+                            <td>{{ $transaksi->mobil->merek }} - {{ $transaksi->mobil->model }}
+                                ({{ $transaksi->mobil->tahun }})</td>
                             <td>{{ $transaksi->mobil->tipe }}</td>
                             <td>Rp. {{ number_format($transaksi->mobil->harga) }}</td>
                             <td>Rp. {{ number_format($transaksi->cash_bayar) }}</td>
@@ -98,7 +96,7 @@
         $(function() {
             $('#table-transaksi-cash').DataTable({
                 "paging": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "searching": true,
                 "ordering": true,
                 "info": true,

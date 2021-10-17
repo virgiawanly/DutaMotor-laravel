@@ -16,7 +16,7 @@ class BeliCashController extends Controller
      */
     public function index()
     {
-        $data_transaksi = BeliCash::latest()->get();
+        $data_transaksi = BeliCash::with(['pembeli', 'mobil'])->latest()->get();
 
         return view('admin.beli_cash.index', [
             'data_transaksi' => $data_transaksi
@@ -65,7 +65,7 @@ class BeliCashController extends Controller
         $kode_cash = BeliCash::get_code();
 
         if($request->daftar_pembeli_baru == "1") {
-            $pembeli = Pembeli::create([
+            Pembeli::create([
                 'ktp_pembeli' => $request->ktp_pembeli,
                 'nama' => $request->nama,
                 'alamat' => $request->alamat,
@@ -85,9 +85,7 @@ class BeliCashController extends Controller
             'cash_tgl' => date('Y-m-d H:i:s')
         ]);
 
-        return redirect()->to('/transaksi/cash')->with('success', 'Pembelian cash berhasil ditambahkan')->with('print-nota', "<script>$(document).ready(function() {
-            window.open('/transaksi/cash/" . $kode_cash . "/cetak-nota', '_blank');
-        })</script>");
+        return redirect()->to('/transaksi/cash')->with('success', 'Pembelian cash berhasil ditambahkan')->with('print-nota', "<script>window.open('/transaksi/cash/" . $kode_cash . "/cetak-nota', '_blank');</script>");
     }
 
     /**

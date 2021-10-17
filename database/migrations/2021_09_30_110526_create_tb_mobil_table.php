@@ -20,7 +20,7 @@ class CreateTbMobilTable extends Migration
             $table->string('tipe', 64);
             $table->string('warna', 64);
             $table->bigInteger('harga');
-            $table->year('tahun');
+            $table->char('tahun', 4);
             $table->string('gambar', 128)->nullable();
             $table->timestamps();
         });

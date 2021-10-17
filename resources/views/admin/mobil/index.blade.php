@@ -1,19 +1,18 @@
 @extends('admin.layouts.app')
 
+@section('content-header')
+    <h1>Data Mobil</h1>
+@endsection
+
 @section('content')
 
     <div class="card card-primary card-outline">
-        <div class="card-header d-flex align-items-center justify-content-between">
-            <h3 class="card-title">Data Mobil</h3>
-            <div class="card-tools ml-auto">
-                <a href="/mobil/tambah-mobil">
-                    <button class="btn btn-primary">Tambah Mobil</button>
-                </a>
-            </div>
+        <div class="card-header">
+            <a href="/mobil/tambah-mobil" class="btn btn-primary"><i class="fas fa-plus-circle mr-1"></i> Tambah Mobil</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="table-mobil" class="table table-bordered table-hover table-striped">
+            <table id="table-mobil" class="table table-bordered table-sm table-hover table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -34,10 +33,9 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $mobil->kode_mobil }}</td>
                             <td class="text-center">
-                                <a href="{{ $mobil->url_gambar() }}" target="_blank">
-                                    <img src="{{ asset($mobil->url_gambar()) }}" width="100px" height="50px"
-                                        class="rounded" style="object-fit: cover; object-position: center"
-                                        loading="lazy">
+                                <img src="{{ asset($mobil->url_gambar()) }}" width="50px" height="25px"
+                                    class="rounded" style="object-fit: cover; object-position: center" loading="lazy"
+                                    data-toggle="modal" data-target="#gambarMobilModal" data-merk="{{$mobil->merek}}">
                                 </a>
                             </td>
                             <td>{{ $mobil->merek }}</td>
@@ -48,7 +46,7 @@
                             <td>{{ 'Rp ' . number_format($mobil->harga) }}</td>
                             <td>
                                 <a href="{{ route('mobil.edit', $mobil->kode_mobil) }}">
-                                    <button class="btn btn-warning" data-toggle="tooltip" data-placement="top"
+                                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top"
                                         title="Edit mobil">
                                         <i class="fas fa-edit"></i>
                                     </button>
@@ -57,8 +55,9 @@
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" data-toggle="tooltip" onclick="confirmDelete(event)"
-                                        data-placement="top" title="Hapus mobil" type="submit">
+                                    <button class="btn btn-danger btn-sm" data-toggle="tooltip"
+                                        onclick="confirmDelete(event)" data-placement="top" title="Hapus mobil"
+                                        type="submit">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
@@ -72,6 +71,25 @@
         <!-- /.card-body -->
     </div>
     <!-- /.card -->
+
+
+    <!-- Modal Gambar Mobil -->
+    <div class="modal fade" id="gambarMobilModal" tabindex="-1" aria-labelledby="gambarMobilModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title"></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="gambarMobil" class="w-100">
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @push('head')
@@ -123,11 +141,20 @@
             })
         }
 
+        $('#gambarMobilModal').on('show.bs.modal', function(event) {
+            let image = $(event.relatedTarget);
+            let src = image.attr('src');
+            let merk = image.data('merk');
+            let modal = $(this);
+            modal.find('.modal-title').text(merk);
+            modal.find('#gambarMobil').attr('src', src);
+        })
+
         // DataTable Initialization
         $(function() {
             $('#table-mobil').DataTable({
                 "paging": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "searching": true,
                 "ordering": true,
                 "info": true,

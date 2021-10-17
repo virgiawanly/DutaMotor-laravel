@@ -236,56 +236,28 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Lama Kredit</label>
+                            <label>Jumlah Cicilan</label>
                             <div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="kredit1th" name="lama_kredit"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit1th">1 Tahun</label>
+                                    <input type="radio" value="0" id="kredit1th" name="lama_cicilan"
+                                        class="custom-control-input" checked>
+                                    <label class="custom-control-label" for="kredit1th">12 Bulan (1 Tahun)</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="kredit2Tahun" name="lama_kredit"
+                                    <input type="radio" value="1" id="kredit2th" name="lama_cicilan"
                                         class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit2Tahun">2 Tahun</label>
+                                    <label class="custom-control-label" for="kredit2th">24 Bulan (2 Tahun)</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="kredit3Tahun" name="lama_kredit"
+                                    <input type="radio" value="1" id="kredit3th" name="lama_cicilan"
                                         class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit3Tahun">3 Tahun</label>
+                                    <label class="custom-control-label" for="kredit3th">36 Bulan (3 Tahun)</label>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="cash_bayar">Jumlah DP</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" value="0" id="dp20" name="lama_kredit"
-                                            class="custom-control-input" checked>
-                                        <label class="custom-control-label" for="dp20">20%</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" value="1" id="dp25" name="lama_kredit"
-                                            class="custom-control-input">
-                                        <label class="custom-control-label" for="dp25">25%</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" value="1" id="dp30" name="lama_kredit"
-                                            class="custom-control-input">
-                                        <label class="custom-control-label" for="dp30">30%</label>
-                                    </div>
-                                </div>
-                                <input type="number" min="0" class="form-control" id="cash_bayar" name="cash_bayar"
-                                    value="{{ old('cash_bayar') ?? '' }}" placeholder="" />
-                            </div>
-                            @error('cash_bayar')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
+
 
                 </div>
 
@@ -293,33 +265,67 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="cash_bayar">Jumlah DP</label>
-                            <input type="number" min="0" class="form-control" readonly id="cash_bayar" name="cash_bayar"
-                                placeholder="" />
+                            <div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="20" id="dp20" name="uang_muka" class="custom-control-input"
+                                        checked>
+                                    <label class="custom-control-label" for="dp20">20%</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="25" id="dp25" name="uang_muka"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="dp25">25%</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" value="30" id="dp30" name="uang_muka"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="dp30">30%</label>
+                                </div>
+                            </div>
                             @error('cash_bayar')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label>Lama Kredit</label>
-                            <div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="0" id="kredit1th" name="lama_kredit"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit1th">1 Tahun</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="kredit2th" name="lama_kredit"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit2th">2 Tahun</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" value="1" id="kredit3th" name="lama_kredit"
-                                        class="custom-control-input">
-                                    <label class="custom-control-label" for="kredit3th">3 Tahun</label>
-                                </div>
-                            </div>
+                            <label for="cash_bayar">Bunga</label>
+                            <h4 class="display-bunga">8% - Rp 50000000</h4>
+                            @error('cash_bayar')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="cash_bayar">Jumlah DP</label>
+                            <h4 class="display_dp">20% - Rp 2000000</h4>
+                            @error('cash_bayar')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="cash_bayar">Jumlah Cicilan</label>
+                            <h4 class="display_dp">36x (3 Tahun)</h4>
+                            @error('cash_bayar')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="cash_bayar">Cicilan Perbulan</label>
+                            <h4 class="font-weight-bold">Rp 2000000</h4>
+                            @error('cash_bayar')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -337,114 +343,12 @@
     </form>
     <!-- /.card -->
 
-    <!-- Modal Mobil -->
-    <div class="modal fade" id="pilihPembeliModal" tabindex="-1" aria-labelledby="pilihPembeliModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pilihPembeliModalLabel">Pilih Pembeli</h5>
-                </div>
-                <div class="modal-body">
-                    <table id="table-pilih-pembeli" class="table table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">KTP Pembeli</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">No. Telepon</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data_pembeli as $key => $pembeli)
-                                <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $pembeli->ktp_pembeli }}</td>
-                                    <td>{{ $pembeli->nama }}</td>
-                                    <td>{{ $pembeli->no_telp }}</td>
-                                    <td>
-                                        <button class="btn btn-success" data-dismiss="modal" aria-label="Close"
-                                            data-ktp-pembeli="{{ $pembeli->ktp_pembeli }}"
-                                            data-nama-pembeli="{{ $pembeli->nama }}"
-                                            data-no-telp="{{ $pembeli->no_telp }}"
-                                            data-alamat="{{ $pembeli->alamat }}"
-                                            onclick="setDisplayPembeli()">Pilih</button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Modal Pembeli -->
+    @include('admin.kredit.modal_pembeli')
 
-    <!-- Modal Mobil -->
-    <div class="modal fade" id="pilihMobilModal" tabindex="-1" aria-labelledby="pilihMobilModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pilihMobilModalLabel">Pilih Modal</h5>
-                    <a href="/mobil/tambah-mobil" type="button" class="btn btn-primary">
-                        Tambah Mobil
-                    </a>
-                </div>
-                <div class="modal-body">
-                    <table id="table-pilih-mobil" class="table table-sm table-bordered table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Kode Mobil</th>
-                                <th scope="col">Mobil</th>
-                                <th scope="col">Merek</th>
-                                <th scope="col">Model</th>
-                                <th scope="col">Tipe</th>
-                                <th scope="col">Warna</th>
-                                <th scope="col">Harga</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data_mobil as $key => $mobil)
-                                <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $mobil->kode_mobil }}</td>
-                                    <td> <img src="{{ asset($mobil->url_gambar()) }}" width="100px" height="50px"
-                                            class="rounded" style="object-fit: cover; object-position: center"
-                                            loading="lazy">
-                                    </td>
-                                    <td>{{ $mobil->merek }}</td>
-                                    <td>{{ $mobil->model }}</td>
-                                    <td>{{ $mobil->tipe }}</td>
-                                    <td>{{ $mobil->warna }}</td>
-                                    <td>{{ $mobil->harga }}</td>
-                                    <td>
-                                        <button class="btn btn-success" data-dismiss="modal" aria-label="Close"
-                                            data-kode-mobil="{{ $mobil->kode_mobil }}"
-                                            data-merek-mobil="{{ $mobil->merek }}"
-                                            data-model-mobil="{{ $mobil->model }}"
-                                            data-tipe-mobil="{{ $mobil->tipe }}"
-                                            data-tahun-mobil="{{ $mobil->tahun }}"
-                                            data-warna-mobil="{{ $mobil->warna }}"
-                                            data-harga-mobil="{{ $mobil->harga }}"
-                                            onclick="setDisplayMobil()">Pilih</button>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Modal Pembeli -->
+    @include('admin.kredit.modal_mobil')
+
 @endsection
 
 @push('head')
@@ -465,33 +369,6 @@
     <script src="{{ asset('adminlte') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 
     <script>
-        const openModalPembeli = () => {
-            event.preventDefault();
-            $('#pilihPembeliModal').modal('show');
-        }
-
-        const openModalMobil = () => {
-            event.preventDefault();
-            $('#pilihMobilModal').modal('show');
-        }
-
-        const setDisplayPembeli = () => {
-            $('input#display_ktp_pembeli').val(event.target.getAttribute('data-ktp-pembeli'));
-            $('input#display_nama_pembeli').val(event.target.getAttribute('data-nama-pembeli'));
-            $('input#display_no_telp').val(event.target.getAttribute('data-no-telp'));
-            $('textarea#display_alamat_pembeli').val(event.target.getAttribute('data-alamat'));
-        }
-
-        const setDisplayMobil = () => {
-            $('input#kode_mobil').val(event.target.getAttribute('data-kode-mobil'));
-            $('input#display_merek_mobil').val(event.target.getAttribute('data-merek-mobil'));
-            $('input#display_model_mobil').val(event.target.getAttribute('data-model-mobil'));
-            $('input#display_tipe_mobil').val(event.target.getAttribute('data-tipe-mobil'));
-            $('input#display_warna_mobil').val(event.target.getAttribute('data-warna-mobil'));
-            $('input#display_tahun_mobil').val(event.target.getAttribute('data-tahun-mobil'));
-            $('input#display_harga_mobil').val(event.target.getAttribute('data-harga-mobil'));
-        }
-
         const checkStatusPembeli = () => {
             if ($('#existing-customer-radio').is(':checked')) {
                 $('.new-customer-section').addClass('d-none');
@@ -500,6 +377,14 @@
                 $('.existing-customer-section').addClass('d-none');
                 $('.new-customer-section').removeClass('d-none');
             }
+        }
+
+        const hitungCicilan = () => {
+            const dBunga = $('.display-bunga');
+            const dDp = $('.display_dp');
+
+            const selectTahun = $('')
+            let = hargaMobil = $('#display_harga_mobil').val()
         }
 
         // DataTable Initialization

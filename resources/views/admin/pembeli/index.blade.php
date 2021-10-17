@@ -1,19 +1,19 @@
 @extends('admin.layouts.app')
 
+@section('content-header')
+    <h1>Data Pembeli</h1>
+@endsection
+
+
 @section('content')
 
     <div class="card card-primary card-outline">
-        <div class="card-header d-flex align-items-center justify-content-between">
-            <h3 class="card-title">Data Pembeli</h3>
-            <div class="card-tools ml-auto">
-                <a href="/pembeli/register-pembeli">
-                    <button class="btn btn-primary">Register Pembeli</button>
-                </a>
-            </div>
+        <div class="card-header">
+            <a href="/pembeli/register-pembeli" class="btn btn-primary"><i class="fas fa-plus-circle mr-1"></i> Tambah Pembeli</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="table-mobil" class="table table-bordered table-hover table-striped">
+            <table id="table-mobil" class="table table-bordered table-sm table-hover table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -30,11 +30,11 @@
                             <td>{{ ++$key }}</td>
                             <td>{{ $pembeli->ktp_pembeli }}</td>
                             <td>{{ $pembeli->nama }}</td>
-                            <td><span title="{{$pembeli->alamat}}">{{ Str::limit( $pembeli->alamat , 100)}}</span></td>
+                            <td><span title="{{ $pembeli->alamat }}">{{ Str::limit($pembeli->alamat, 100) }}</span></td>
                             <td>{{ $pembeli->no_telp }}</td>
                             <td>
                                 <a href="{{ route('pembeli.edit', $pembeli->ktp_pembeli) }}">
-                                    <button class="btn btn-warning" data-toggle="tooltip" data-placement="top"
+                                    <button class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="top"
                                         title="Edit pembeli">
                                         <i class="fas fa-edit"></i>
                                     </button>
@@ -43,7 +43,7 @@
                                     method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" data-toggle="tooltip" onclick="confirmDelete(event)"
+                                    <button class="btn btn-danger btn-sm" data-toggle="tooltip" onclick="confirmDelete(event)"
                                         data-placement="top" title="Hapus mobil" type="submit">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
@@ -63,8 +63,7 @@
 @push('head')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet"
-        href="{{ asset('adminlte') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="{{ asset('adminlte') }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
@@ -112,7 +111,7 @@
         $(function() {
             $('#table-mobil').DataTable({
                 "paging": true,
-                "lengthChange": false,
+                "lengthChange": true,
                 "searching": true,
                 "ordering": true,
                 "info": true,
